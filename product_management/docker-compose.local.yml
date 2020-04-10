@@ -1,0 +1,14 @@
+version: '3.2'
+
+networks:
+ backend:
+
+services:
+
+#  app:
+#    image: order_management
+#    restart: always
+#    networks:
+#      - backend
+
+

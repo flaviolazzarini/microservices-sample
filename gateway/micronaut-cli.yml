@@ -1,0 +1,5 @@
+profile: service
+defaultPackage: li.lazzarini.microservices_sample.micro.service
+---
+testFramework: junit
+sourceLanguage: java
