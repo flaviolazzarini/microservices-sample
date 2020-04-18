@@ -91,7 +91,7 @@ public interface EntityAdapter<T extends Entity> {
      * @param entity Entity which has to be checked
      * @return If found then true else false
      */
-    Boolean exists(T entity);
+    boolean exists(T entity);
 
     /**
      * Gets the MongoAdapter

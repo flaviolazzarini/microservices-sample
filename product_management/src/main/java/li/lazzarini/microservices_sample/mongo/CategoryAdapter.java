@@ -13,7 +13,7 @@ import java.util.NoSuchElementException;
 public class CategoryAdapter implements EntityAdapterExtended<Category> {
     private MongoAdapter<Category> mongoAdapter;
 
-    CategoryAdapter(MongoAdapter mongoAdapter) {
+    CategoryAdapter(MongoAdapter<Category> mongoAdapter) {
         this.mongoAdapter = mongoAdapter;
         this.mongoAdapter.changeCollection(MongoDbConfig.DATABASE, MongoDbConfig.CATEGORY_COLLECTION);
     }
@@ -28,7 +28,7 @@ public class CategoryAdapter implements EntityAdapterExtended<Category> {
      * @param category Category which has to be checked
      * @return If found then true else false
      */
-    public Boolean exists(Category category){
+    public boolean exists(Category category){
         try{
             getByName(category.getName());
         }

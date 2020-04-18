@@ -82,7 +82,10 @@ public final class BusConnector implements AutoCloseable {
 
             // check if response matches correlation id
             if (delivery.getProperties().getCorrelationId().equals(corrId)) {
-                response.offer(new String(delivery.getBody(), StandardCharsets.UTF_8));
+                boolean enoughSpaceInQueue = response.offer(new String(delivery.getBody(), StandardCharsets.UTF_8));
+                if(!enoughSpaceInQueue) {
+                    LOG.info("no space is currently available on the queue");
+                }
             }
         }, consumerTag -> {
             // empty
@@ -92,9 +95,6 @@ public final class BusConnector implements AutoCloseable {
         AMQP.BasicProperties props = new AMQP.BasicProperties.Builder().correlationId(corrId).replyTo(replyQueueName)
                     .build();
         channelTalk.basicPublish(exchange, route, props, message.getBytes(StandardCharsets.UTF_8));
-
-        // To receive a message without timeout, use:
-        // String result = response.take();
 
         // receive message with timeout
         final String result = response.poll(5, TimeUnit.SECONDS);

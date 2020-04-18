@@ -80,7 +80,7 @@ final class MongoAdapter<T extends Entity> {
      * @param obj Object that should be removed in Collection
      * @throws IOException if convert to Document fails
      */
-    public Boolean remove(T obj) throws IOException {
+    public boolean remove(T obj) throws IOException {
         Document doc = convert(obj);
         Boolean result = this.collection.deleteOne(doc).wasAcknowledged();
         LOGGER.info("Removed " + doc);
