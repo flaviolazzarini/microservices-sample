@@ -14,8 +14,8 @@ deploy:
     secure: "P5tB9U6pAk5iaRhHis6jNpTpoGgzUxM7jb/TS00uraXSlCljPPWwuyq231h5d+ww00jNhFymcAWPBJ7m4XBWmiaAetJTpWg+46r4mxP5cESannkG1rGr8OciuZsy/JDNuOUvKkH0KJI4AikwjgvlcA11TBekX9WPqKiut4Qr0zkqJZp/ePZaJPEGuAk2helVqhD3NLMqYcQFKoihrr4m+iA98qbsWzuE3Vx3fY0NwVCyY6F47jqJPDD/0xIQ5b/nGjf9PLhiwNbutkT2RBjPbJzC0pst5A/md94cPN6D/I31kRnNokXnZ/NBHX20WhEeDRmV3ZTr6QJZS2QDXS2XaQFLHyym1mNwRt0ByW8t051NFFRWzn5U9OQp9mrwWGO9+10PgYKxM4S1gOOFOodq3t+nq6HfDQlrvdnM3pjsm+I7gwhh1mrUGNF7rbSn7Ye8lhpP9YSmhm7xEoJu+VjtkHQkHUQcEmJhC5A4aBPk+wmZdtHSPJXPO3Qj5yU+pftzxD2/UAjyxGqIGTANkgnzcew/nfjSitYTJUAdu92tPBt8AbykBj80yoxWtfo6x9cQqIhrMkrTUzo5Ue+cFmlYURdxidxXQyhdqIES4W88cYXzO2s0vG5HGwACgiFBp9tlVyqrIMavICJbKbuckjTHaH7IRUpvQHJHjvcGksyZCE0="
   file_glob: true
   file:
-    - "gateway/target/*.jar"
-    - "order_management/target/*.jar"
-    - "product_management/target/*.jar"
-    - "user_management/target/*.jar"
+    - "gateway/target/*service.jar"
+    - "order_management/target/*service.jar"
+    - "product_management/target/*service.jar"
+    - "user_management/target/*service.jar"
   skip_cleanup: true
