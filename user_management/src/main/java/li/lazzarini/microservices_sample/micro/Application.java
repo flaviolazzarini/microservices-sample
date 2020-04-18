@@ -24,11 +24,12 @@ public final class Application {
      * @param args not used.
      */
     public static void main(final String[] args) {
-        final Logger LOG = LogManager.getLogger(Application.class);
-        try {
-            Service service = new Service();
-        } catch (IOException | TimeoutException e) {
-            LOG.error(e);
+        final Logger logger = LogManager.getLogger(Application.class);
+
+        try (Service service = new Service()) {
+            logger.info("Service User Management started");
+        } catch (Exception e) {
+            logger.error(e);
         }
     }
 }

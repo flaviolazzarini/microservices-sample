@@ -19,7 +19,7 @@ import java.io.IOException;
 public class ObjectIdDeserializer extends JsonDeserializer<ObjectId> {
 
     @Override
-    public ObjectId deserialize(JsonParser p, DeserializationContext ctxt) throws IOException, JsonProcessingException {
+    public ObjectId deserialize(JsonParser p, DeserializationContext ctxt) throws IOException {
         JsonNode oid = ((JsonNode)p.readValueAsTree()).get("$oid");
         return new ObjectId(oid.asText());
     }

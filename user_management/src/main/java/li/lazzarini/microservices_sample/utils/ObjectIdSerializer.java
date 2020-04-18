@@ -16,7 +16,7 @@ import java.io.IOException;
  */
 public class ObjectIdSerializer extends JsonSerializer<ObjectId> {
     @Override
-    public void serialize(ObjectId o, JsonGenerator j, SerializerProvider s) throws IOException, JsonProcessingException {
+    public void serialize(ObjectId o, JsonGenerator j, SerializerProvider s) throws IOException {
         if(o == null) {
             j.writeNull();
         } else {

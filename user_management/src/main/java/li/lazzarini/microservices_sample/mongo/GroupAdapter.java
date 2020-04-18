@@ -13,7 +13,7 @@ import java.util.NoSuchElementException;
 public final class GroupAdapter implements EntityAdapterExtended<Group>{
     private MongoAdapter<Group> mongoAdapter;
 
-    GroupAdapter(MongoAdapter mongoAdapter) {
+    GroupAdapter(MongoAdapter<Group> mongoAdapter) {
         this.mongoAdapter = mongoAdapter;
         this.mongoAdapter.changeCollection(MongoDbConfig.DATABASE, MongoDbConfig.GROUPS_COLLECTION);
     }
