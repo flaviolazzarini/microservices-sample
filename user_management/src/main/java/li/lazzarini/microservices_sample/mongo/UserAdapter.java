@@ -15,11 +15,11 @@ import java.util.NoSuchElementException;
 public final class UserAdapter implements EntityAdapter<User>{
 
     // User Entity Fields which are saved in the Database
-    public final static String USERNAME_FIELD = "username";
+    public static final String USERNAME_FIELD = "username";
 
     private MongoAdapter<User> mongoAdapter;
 
-    UserAdapter(MongoAdapter mongoAdapter) {
+    UserAdapter(MongoAdapter<User> mongoAdapter) {
         this.mongoAdapter = mongoAdapter;
         this.mongoAdapter.changeCollection(MongoDbConfig.DATABASE, MongoDbConfig.USERS_COLLECTION);
     }
@@ -46,7 +46,7 @@ public final class UserAdapter implements EntityAdapter<User>{
      * @return User with the Username
      * @throws NoSuchElementException If no User is found
      */
-    public User getByUsername(String username) throws NoSuchElementException{
+    public User getByUsername(String username) {
         try {
             return this.mongoAdapter.getOne(Filters.eq(USERNAME_FIELD, username));
         } catch (IOException e) {

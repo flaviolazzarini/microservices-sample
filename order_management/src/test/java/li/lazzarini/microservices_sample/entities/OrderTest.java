@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 class OrderTest {
 
     @Test
@@ -24,6 +26,7 @@ class OrderTest {
         System.out.println(json);
 
         Order order1 = mapper.readValue(json, Order.class);
+        assertEquals(order1, order);
     }
 
 }

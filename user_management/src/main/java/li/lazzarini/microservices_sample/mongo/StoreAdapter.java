@@ -14,7 +14,7 @@ public final class StoreAdapter implements EntityAdapterExtended<Store>{
 
     private MongoAdapter<Store> mongoAdapter;
 
-    StoreAdapter(MongoAdapter mongoAdapter) {
+    StoreAdapter(MongoAdapter<Store> mongoAdapter) {
         this.mongoAdapter = mongoAdapter;
         this.mongoAdapter.changeCollection(MongoDbConfig.DATABASE, MongoDbConfig.STORES_COLLECTION);
     }

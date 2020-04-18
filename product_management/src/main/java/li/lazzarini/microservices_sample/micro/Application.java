@@ -1,9 +1,6 @@
 
 package li.lazzarini.microservices_sample.micro;
 
-import java.io.IOException;
-import java.util.concurrent.TimeoutException;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -20,14 +17,15 @@ public final class Application {
 
     /**
      * main-Methode. Startet einen Timer für den HeartBeat.
+     *
      * @param args not used.
      */
     public static void main(final String[] args) {
-        final Logger LOG = LogManager.getLogger(Application.class);
-        try {
-            Service service = new Service();
-        } catch (IOException | TimeoutException e) {
-            LOG.error(e);
+        final Logger logger = LogManager.getLogger(Application.class);
+        try (Service service = new Service()) {
+            logger.info("Service Product Management started successfully");
+        } catch (Exception e) {
+            logger.error(e);
         }
     }
 }

@@ -6,6 +6,8 @@ import li.lazzarini.microservices_sample.entities.Sortiment;
 import com.mongodb.MongoClient;
 import com.mongodb.MongoClientURI;
 import org.bson.types.ObjectId;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -18,7 +20,7 @@ import java.util.List;
  * @author: Matej Mrnjec
  */
 public class MongoDBInit {
-
+    private static final Logger LOG = LoggerFactory.getLogger(MongoDBInit.class);
     public static void main(final String[] args) throws IOException {
         deleteDatabase(MongoDbConfig.DATABASE);
         createSortiment();
@@ -28,8 +30,9 @@ public class MongoDBInit {
 
     private static void deleteDatabase(String name){
         MongoDbConfig config = new MongoDbConfig();
-        MongoClient mongoClient = new MongoClient(new MongoClientURI(config.getConnectionAddress()));
-        mongoClient.getDatabase(name).drop();
+        try (MongoClient mongoClient = new MongoClient(new MongoClientURI(config.getConnectionAddress()))) {
+            mongoClient.getDatabase(name).drop();
+        }
     }
 
     public static void createProducts() throws IOException {
@@ -63,7 +66,7 @@ public class MongoDBInit {
             try {
                 productAdapter.create(product);
             } catch (IOException e) {
-                e.printStackTrace();
+                LOG.info(e.getMessage());
             }
         });
     }
@@ -80,7 +83,7 @@ public class MongoDBInit {
             try {
                 adapter.create(sortiment);
             } catch (IOException e) {
-                e.printStackTrace();
+                LOG.info(e.getMessage());
             }
         });
     }
@@ -97,7 +100,7 @@ public class MongoDBInit {
             try {
                 adapter.create(category);
             } catch (IOException e) {
-                e.printStackTrace();
+                LOG.info(e.getMessage());
             }
         });
     }

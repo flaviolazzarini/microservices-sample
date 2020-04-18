@@ -1,7 +1,5 @@
 package li.lazzarini.microservices_sample.bus;
 
-import com.rabbitmq.client.impl.AMQBasicProperties;
-
 import java.io.IOException;
 
 /**

@@ -38,7 +38,7 @@ class OrderControllerTest {
     RxHttpClient client;
 
     @Test
-    void testGetOrders() throws IOException, TimeoutException, InterruptedException {
+    void testGetOrders() throws IOException, InterruptedException {
         Response response = new Response(Status.OK, "orders", "");
         ObjectMapper mapper = new ObjectMapper();
         String responseString = mapper.writeValueAsString(response);
@@ -49,7 +49,7 @@ class OrderControllerTest {
     }
 
     @Test
-    void testOrderCreateException() throws IOException, InterruptedException, TimeoutException {
+    void testOrderCreateException() throws IOException, InterruptedException {
         when(communication.syncCall(anyString(), anyString())).thenThrow(new IOException("Test Error"));
         String input = "{\"id\":1,\"products\":[{\"id\":1,\"name\":\"Product 1\",\"price\":3.5,\"description\":\"Description\",\"category\":{\"id\":1,\"name\":\"elektronik\"}},{\"id\":2,\"name\":\"Product 2\",\"price\":3.5,\"description\":\"Description\",\"category\":{\"id\":1,\"name\":\"elektronik\"}}],\"username\":\"3\",\"customerId\":\"4\",\"time\":\"20.03.2019 9:30\"}";
         final HttpRequest<String> request = HttpRequest.PUT("/api/v1/order/", input);
@@ -62,7 +62,7 @@ class OrderControllerTest {
     }
 
     @Test
-    void testOrderCreateProductsUnavailable() throws IOException, InterruptedException, TimeoutException {
+    void testOrderCreateProductsUnavailable() throws IOException, InterruptedException {
         String data = "Products unavaliable";
         Response response = new Response(Status.PRODUCTS_NOT_AVAILABLE, data, "");
         ObjectMapper mapper = new ObjectMapper();
@@ -81,7 +81,7 @@ class OrderControllerTest {
     }
 
     @Test
-    void testOrderCreate() throws IOException, InterruptedException, TimeoutException {
+    void testOrderCreate() throws IOException, InterruptedException {
         String data = "Order erfolgreich erstellt";
         Response response = new Response(Status.OK, data, "");
         ObjectMapper mapper = new ObjectMapper();

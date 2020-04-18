@@ -1,12 +1,12 @@
 package li.lazzarini.microservices_sample.utils;
 
 import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.ObjectCodec;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.databind.JsonNode;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.text.DateFormat;
@@ -22,9 +22,9 @@ import java.util.Date;
  * @author: Matej Mrnjec
  */
 public class IsoDateDeserializer extends JsonDeserializer<Date> {
-
+    private static final Logger LOG = LoggerFactory.getLogger(IsoDateDeserializer.class);
     @Override
-    public Date deserialize(JsonParser jp, DeserializationContext dc) throws IOException, JsonProcessingException {
+    public Date deserialize(JsonParser jp, DeserializationContext dc) throws IOException {
         ObjectCodec oc = jp.getCodec();
         JsonNode node = oc.readTree(jp);
         String dateValue = node.get("$date").asText();
@@ -35,7 +35,7 @@ public class IsoDateDeserializer extends JsonDeserializer<Date> {
         try {
             date = df.parse(dateValue);
         } catch (ParseException e) {
-            System.out.println("Ignored ParseException because it may be a Long Value");
+            LOG.info("Ignored ParseException because it may be a Long Value");
         }
 
         // If not then it must be a Long

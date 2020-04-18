@@ -38,7 +38,7 @@ final class StudentMicronautIT {
 
     @Test
     @Disabled
-    public void testGetStudentOne() throws Exception {
+    public void testGetStudentOne() {
         final HttpRequest<String> request = HttpRequest.GET("/api/v1/students/1");
         final String body = client.toBlocking().retrieve(request);
         Assertions.assertThat(body).contains("\"lastName\":\"Grone\"");
@@ -46,7 +46,7 @@ final class StudentMicronautIT {
 
     @Test
     @Disabled
-    public void testGetStudentTwo() throws Exception {
+    public void testGetStudentTwo() {
         final HttpRequest<String> request = HttpRequest.GET("/api/v1/students/2");
         final String body = client.toBlocking().retrieve(request);
         Assertions.assertThat(body).contains("\"lastName\":\"Zweifel\"");
