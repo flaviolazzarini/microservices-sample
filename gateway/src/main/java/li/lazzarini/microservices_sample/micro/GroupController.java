@@ -22,7 +22,7 @@ public class GroupController {
     GroupController(Communication communication) { this.communication = communication; }
 
     @Get("/")
-    public HttpResponse<?> getGroupList() {
+    public HttpResponse<Object> getGroupList() {
         try {
             String json = communication.syncCall(ROUTE_GROUP_LIST, "");
             ObjectMapper mapper = new ObjectMapper();
@@ -30,14 +30,15 @@ public class GroupController {
             if (response.getStatus() == Status.OK) {
                 return HttpResponse.ok(response.getData());
             } else {
-                return HttpResponse.serverError("Internal Server error");
+                return HttpResponse.serverError(ErrorMessage.INTERNAL_ERROR.getMessage());
             }
         } catch (IOException e) {
             LOG.error(e.getMessage());
-            return HttpResponse.serverError("Internal Server error");
+            return HttpResponse.serverError(ErrorMessage.INTERNAL_ERROR.getMessage());
         } catch (InterruptedException e) {
             LOG.error(e.getMessage());
-            return HttpResponse.serverError("Internal Server error");
+            Thread.currentThread().interrupt();
+            return HttpResponse.serverError(ErrorMessage.INTERNAL_ERROR.getMessage());
         }
     }
 
