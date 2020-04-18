@@ -8,7 +8,7 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
-    <name>Example of multi-module Maven project</name>
+    <name>Microservices Sample</name>
 
     <modules>
         <module>gateway</module>
