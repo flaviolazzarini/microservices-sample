@@ -68,7 +68,7 @@ public interface EntityAdapter<T extends Entity> {
      * @throws IOException if convert fails in MongoAdapter
      */
     default void create(T entity) throws IOException{
-        if(!equals(exists(entity))){
+        if(!(exists(entity))){
             getMongoAdapter().create(entity);
         }
     }
