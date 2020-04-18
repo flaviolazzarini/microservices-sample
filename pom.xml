@@ -13,6 +13,8 @@
     <modules>
         <module>gateway</module>
         <module>order_management</module>
+        <module>product_management</module>
+        <module>user_management</module>
     </modules>
 
     <properties>
