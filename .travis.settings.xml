@@ -28,7 +28,7 @@
         <server>
             <id>github</id>
             <username>flaviolazzarini</username>
-            <password>{env.GITHUB_REPO}</password>
+            <password>${env.GITHUB_REPO}</password>
         </server>
     </servers>
 </settings>
