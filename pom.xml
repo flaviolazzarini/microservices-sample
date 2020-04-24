@@ -15,7 +15,6 @@
         <module>order_management</module>
         <module>product_management</module>
         <module>user_management</module>
-        <module>bus</module>
     </modules>
 
     <properties>
