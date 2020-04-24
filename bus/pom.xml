@@ -5,7 +5,7 @@
 
     <groupId>li.lazzarini.microservices_sample</groupId>
     <artifactId>bus</artifactId>
-    <version>1.0.3-SNAPSHOT</version>
+    <version>1.0.3</version>
     <packaging>jar</packaging>
 
     <name>bus</name>
