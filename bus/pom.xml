@@ -100,6 +100,11 @@
                 <version>3.1.7</version>
                 <scope>test</scope>
             </dependency>
+            <dependency>
+                <groupId>javax.inject</groupId>
+                <artifactId>javax.inject</artifactId>
+                <version>1</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -107,6 +112,10 @@
         <dependency>
             <groupId>com.rabbitmq</groupId>
             <artifactId>amqp-client</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>javax.inject</groupId>
+            <artifactId>javax.inject</artifactId>
         </dependency>
         <dependency>
             <groupId>org.mockito</groupId>
@@ -179,14 +188,9 @@
                         </compilerArgs>
                         <annotationProcessorPaths>
                             <path>
-                                <groupId>io.micronaut</groupId>
-                                <artifactId>micronaut-inject-java</artifactId>
-                                <version>${micronaut.version}</version>
-                            </path>
-                            <path>
-                                <groupId>io.micronaut</groupId>
-                                <artifactId>micronaut-validation</artifactId>
-                                <version>${micronaut.version}</version>
+                                <groupId>javax.inject</groupId>
+                                <artifactId>javax.inject</artifactId>
+                                <version>1</version>
                             </path>
                         </annotationProcessorPaths>
                     </configuration>
@@ -202,14 +206,9 @@
                                 </compilerArgs>
                                 <annotationProcessorPaths>
                                     <path>
-                                        <groupId>io.micronaut</groupId>
-                                        <artifactId>micronaut-inject-java</artifactId>
-                                        <version>${micronaut.version}</version>
-                                    </path>
-                                    <path>
-                                        <groupId>io.micronaut</groupId>
-                                        <artifactId>micronaut-validation</artifactId>
-                                        <version>${micronaut.version}</version>
+                                        <groupId>javax.inject</groupId>
+                                        <artifactId>javax.inject</artifactId>
+                                        <version>1</version>
                                     </path>
                                 </annotationProcessorPaths>
                             </configuration>
