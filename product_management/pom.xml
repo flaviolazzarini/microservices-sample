@@ -3,6 +3,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <parent>
+        <groupId>li.lazzarini</groupId>
+        <artifactId>microservices_sample</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+
     <groupId>li.lazzarini.microservices_sample</groupId>
     <artifactId>product_management</artifactId>
     <version>1.0.0-SNAPSHOT</version>
@@ -129,12 +135,6 @@
                 <artifactId>equalsverifier</artifactId>
                 <version>3.1.7</version>
                 <scope>test</scope>
-            </dependency>
-            <dependency>
-                <groupId>li.lazzarini.microservices_sample</groupId>
-                <artifactId>bus</artifactId>
-                <version>${bus.version}</version>
-                <scope>compile</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>
