@@ -46,6 +46,7 @@
         <log4j2.version>2.11.2</log4j2.version>
         <rabbitmq.version>5.6.0</rabbitmq.version>
         <mongodb.version>3.4.3</mongodb.version>
+        <bus.version>1.0.0-SNAPSHOT</bus.version>
     </properties>
 
     <dependencyManagement>
@@ -129,10 +130,20 @@
                 <version>3.1.7</version>
                 <scope>test</scope>
             </dependency>
+            <dependency>
+                <groupId>li.lazzarini.microservices_sample</groupId>
+                <artifactId>bus</artifactId>
+                <version>${bus.version}</version>
+                <scope>compile</scope>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
     <dependencies>
+        <dependency>
+            <groupId>li.lazzarini.microservices_sample</groupId>
+            <artifactId>bus</artifactId>
+        </dependency>
         <dependency>
             <groupId>com.rabbitmq</groupId>
             <artifactId>amqp-client</artifactId>
