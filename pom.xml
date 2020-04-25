@@ -20,6 +20,7 @@
     <properties>
         <!-- VM-Args (z.B. Memory-Settings) für Unit- und Integrationstests. -->
         <argLine>-Xms512m -Xmx1g -Xss10m</argLine>
+        <jacoco.reportPath>${project.basedir}/../target/jacoco.exec</jacoco.reportPath>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.maven.version>3.3.9</project.maven.version>
@@ -75,6 +76,10 @@
                         <goals>
                             <goal>prepare-agent</goal>
                         </goals>
+                        <configuration>
+                            <append>true</append>
+                            <destFile>${jacoco.reportPath}</destFile>
+                        </configuration>
                     </execution>
                     <execution>
                         <id>report</id>
@@ -82,6 +87,9 @@
                         <goals>
                             <goal>report</goal>
                         </goals>
+                        <configuration>
+                        <dataFile>${project.basedir}/../target/jacoco.exec</dataFile>
+                    </configuration>
                     </execution>
                 </executions>
             </plugin>
